@@ -1,0 +1,60 @@
+{% extends 'layout.html'%}
+
+
+
+
+{% block body %}
+
+   <div id="header">
+      <ul class="nav">
+         <li><a href="">Año</a>
+            <ul>
+                  <li><a href="/year/{{2016}}">2016</a></li>
+                  <li><a href="/year/{{2017}}">2017</a></li>
+                  <li><a href="/year/{{2018}}">2018</a></li>
+                  <li><a href="/year/{{2019}}">2019</a></li>
+            </ul>
+         </li>
+      </ul>
+   </div>
+
+
+   <div class="col-md-10">
+      <table class="table table-striped table-bordered bg-white table-sm">
+         <thead>
+            <tr>
+               <td>ID venta</td>
+               <td>Fecha venta</td>
+               <td>Producto</td>
+               <td>Zona</td>
+               <td>Venta</td>
+               <td>Vendedor</td>
+               <td>Cliente</td>
+            </tr>
+         </thead>
+         <tbody>
+            {% for contact in contacts %}
+            <tr>
+               <td>{{contact.0}}</td>
+               <td>{{contact.1}}</td>
+               <td>{{contact.2}}</td>
+               <td>{{contact.3}}</td>
+               <td>{{contact.4}}</td>
+               <td>{{contact.5}}</td>
+               <td>{{contact.6}}</td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </div>
+</div>
+
+<a href="{{ url_for("static", filename="csv/datayear.csv") }}"  class="btn btn-secondary" >
+   download.csv
+</a>
+
+<img src="{{ url_for("static", filename="images/gbar_year.jpg") }}"  class="pt-4" >
+
+
+
+{% endblock %}
